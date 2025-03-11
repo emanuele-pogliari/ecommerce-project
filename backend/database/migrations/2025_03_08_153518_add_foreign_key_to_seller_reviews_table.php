@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('seller_reviews', function (Blueprint $table) {
-            $table->foreignId('seller_id')->constrained();
+            $table->foreignId('seller_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained();
         });
     }
 
@@ -24,6 +25,8 @@ return new class extends Migration
         Schema::table('seller_reviews', function (Blueprint $table) {
             $table->dropForeign(['seller_id']);
             $table->dropColumn('seller_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
     }
 };

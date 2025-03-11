@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cart_items', function (Blueprint $table) {
-            $table->foreignId('seller_product_id')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->foreignId('cart_id')->constrained();
         });
     }
@@ -25,8 +25,8 @@ return new class extends Migration
         Schema::table('cart_items', function (Blueprint $table) {
             $table->dropForeign(['cart_id']);
             $table->dropColumn('cart_id');
-            $table->dropForeign(['seller_product_id']);
-            $table->dropColumn('seller_product_id');
+            $table->dropForeign(['product_id']);
+            $table->dropColumn('product_id');
         });
     }
 };

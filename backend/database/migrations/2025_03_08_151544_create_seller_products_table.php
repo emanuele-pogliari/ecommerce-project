@@ -16,6 +16,7 @@ return new class extends Migration
             $table->decimal('price', total:10, places:2);
             $table->integer('stock');
             $table->text('description');
+            $table->boolean('is_approved');
             $table->timestamps();
         });
     }
