@@ -1,4 +1,5 @@
 import "flowbite";
+console.log("Flowbite imported");
 
 import Alpine from "alpinejs";
 

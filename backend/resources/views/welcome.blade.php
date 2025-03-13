@@ -165,6 +165,10 @@
                             </div>
                         </div>
                     </main>
+                    <button id="dropdownButton" data-dropdown-toggle="dropdown">Apri</button>
+                    <div id="dropdown" class="hidden p-2 bg-white shadow-md">
+                      <p class="text-white">Contenuto del dropdown</p>
+                    </div>
 
                     <footer class="py-16 text-sm text-center text-black dark:text-white/70">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})

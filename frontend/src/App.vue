@@ -3,7 +3,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <h1 class="text-3xl text-green-600 font-bold underline">Hello world!</h1>
+  <h1 class="text-3xl font-bold text-green-600 underline">Hello world!</h1>
 
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -14,6 +14,10 @@ import HelloWorld from "./components/HelloWorld.vue";
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <button id="dropdownButton" data-dropdown-toggle="dropdown">Apri</button>
+  <div id="dropdown" class="hidden p-2 bg-white shadow-md">
+    <p class="text-black">Contenuto del dropdown</p>
+  </div>
 </template>
 
 <style scoped>
