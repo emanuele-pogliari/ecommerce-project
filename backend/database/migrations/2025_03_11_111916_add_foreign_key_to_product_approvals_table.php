@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('product_approvals', function (Blueprint $table) {
             $table->foreignId('category_id')->constrained();
             $table->foreignId('seller_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('admin_id')->constrained();
         });
     }
 
@@ -27,6 +28,8 @@ return new class extends Migration
             $table->dropColumn('category_id');
             $table->dropForeign(['seller_id']);
             $table->dropColumn('seller_id');
+            $table->dropForeign(['admin_id']);
+            $table->dropColumn('admin_id');
         });
     }
 };

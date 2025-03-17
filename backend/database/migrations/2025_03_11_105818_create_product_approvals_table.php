@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('product_approvals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->string('new_name')->nullable();
+            $table->decimal('new_price')->nullable();
+            $table->integer('new_stock')->nullable();
             $table->string('brand')->nullable();
+            $table->string('new_brand')->nullable();
             $table->text('description')->nullable();
+            $table->text('new_description')->nullable();
+            $table->enum('type',['modification', 'addition']);
             $table->string('approved_by')->nullable();
-            $table->string('suggested_category')->nullable();
             $table->enum('status' , ['pending', 'approved', 'rejected']);
             $table->timestamps();
         });

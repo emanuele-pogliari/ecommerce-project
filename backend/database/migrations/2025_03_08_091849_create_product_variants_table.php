@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('type_value');
-            $table->decimal('price', total: 10, places: 2);
             $table->timestamps();
         });
     }

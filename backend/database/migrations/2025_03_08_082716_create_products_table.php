@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('brand');
-            
+            $table->integer('stock');
+            $table->boolean('is_private');
+            $table->boolean('is_approved');
+            $table->text('description');
             $table->timestamps();
         });
     }
