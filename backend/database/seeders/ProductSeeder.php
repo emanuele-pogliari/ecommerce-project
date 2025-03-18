@@ -12,6 +12,18 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $products = config('ecommerce_db_faker.products');
+
+        foreach ($products as $product){
+            $newProduct = new Product();
+            $newProduct->name = $product['name'];
+            $newProduct->brand = $product['brand'];
+            $newProduct->description = $product['description'];
+            $newProduct->category_id = $product['category_id'];
+            $newProduct->stock = $product['stock'];
+            $newProduct->is_approved = $product['is_approved'];
+            $newProduct->is_private = $product['is_private'];
+            $newProduct->save();
+        }
     }
 }

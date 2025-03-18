@@ -12,6 +12,13 @@ class ProductImageSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $productImages = config('ecommerce_db_faker.product_images');
+        foreach ($productImages as $image){
+            $newImage = new ProductImage();
+            $newImage->product_id = $image['product_id'];
+            $newImage->image_url = $image['image_url'];
+            $newImage->is_primary = $image['is_primary'];
+            $newImage->save();
+        }
     }
 }

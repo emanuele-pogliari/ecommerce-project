@@ -12,6 +12,15 @@ class PayementSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-    }
+        $payements = config('ecommerce_db_faker.payements');
+
+        foreach ($payements as $payment){
+            $newPayment = new Payment();
+            $newPayment->order_id = $payment['order_id'];
+            $newPayment->pay_method = $payment['pay_method'];
+            $newPayment->amount = $payment['amount'];
+            $newPayment->status = $payment['status'];
+            $newPayment->save();
+        }
+    } 
 }

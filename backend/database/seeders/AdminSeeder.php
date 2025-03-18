@@ -12,6 +12,12 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+       $admins = conifg('ecommerce_db_faker.admins');
+
+       foreach ($admins as $admin){
+            $newAdmin = new Admin();
+            $newAdmin->user_id = $admin['user_id'];
+            $newAdmin->save();
+        }
     }
 }

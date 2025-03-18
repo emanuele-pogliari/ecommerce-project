@@ -12,6 +12,13 @@ class SellerReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $seller_reviews = config('ecommerce_db_faker.seller_reviews');
+        foreach ($seller_reviews as $review){
+            $newReview = new SellerReview();
+            $newReview->seller_id = $review['seller_id'];
+            $newReview->comment = $review['comment'];
+            $newReview->rating = $review['rating'];
+            $newReview->save();
+        }
     }
 }

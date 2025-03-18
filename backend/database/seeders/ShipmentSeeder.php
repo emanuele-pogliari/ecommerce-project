@@ -12,6 +12,14 @@ class ShipmentSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $shipments = config('ecommerce_db_faker.shipments');
+        foreach ($shipments as $shipment){
+            $newShipment = new Shipment();
+            $newShipment->order_id = $shipment['order_id'];
+            $newShipment->tracking_number = $shipment['tracking_number'];
+            $newShipment->status = $shipment['status'];
+            $newShipment->carrier = $shipment['carrier'];
+            $newShipment->save();
+        }
     }
 }

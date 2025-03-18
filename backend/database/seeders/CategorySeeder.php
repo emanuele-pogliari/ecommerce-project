@@ -12,6 +12,12 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $category = config('ecommerce_db_faker.categories');
+        foreach ($category as $category){
+            $newCategory = new Category();
+            $newCategory->name = $category['name'];
+            $newCategory->parent_id = $category['parent_id'];
+            $newCategory->save();
+        }
     }
 }
