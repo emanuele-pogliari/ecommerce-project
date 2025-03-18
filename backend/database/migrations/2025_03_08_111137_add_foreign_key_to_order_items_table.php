@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('order_items', function (Blueprint $table) {
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->foreignId('cart_id')->constrained();
         });
     }
 
@@ -27,6 +28,8 @@ return new class extends Migration
             $table->dropColumn('order_id');
             $table->dropForeign(['product_id']);
             $table->dropColumn('product_id');
+            $table->dropForeign(['cart_id']);
+            $table->dropColumn('cart_id');
         });
     }
 };
